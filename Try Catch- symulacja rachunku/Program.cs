@@ -16,10 +16,14 @@ class Paragaon
         double wartosc_do_zaplaty;
         FileStream F = new FileStream("paragon.txt", FileMode.Create);
         StreamWriter zapis = new StreamWriter(F);
-        Console.Write("Podaj nazwę produktu: ");
-        nazwa_produktu = Console.ReadLine();
         try
         {
+        Console.Write("Podaj nazwę produktu: ");
+        nazwa_produktu = Console.ReadLine();
+            if(!nazwa_produktu.Any(char.IsLetter))
+            {
+                throw new Exception();
+            }
             //Console.Write("Podaj nazwę produktu: ");
             //nazwa_produktu = isString(Console.ReadLine());
             Console.Write("Podaj cenę produktu: ");
